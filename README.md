@@ -21,6 +21,9 @@ They are the output of split.ipynb, within which only contain data of correspond
 #### EDA_2017.ipynb and EDA_2018.ipynb 
 They are the EDA (exploratory data analysis) processes in 2017 and 2018. On this basis, we can see that the data distribution is fluctuating every month, every week, and every hour, so we need to extract these contents to form our features in the modeling part.
 
+#### train.csv
+It is the raw training data given by contest.
+
 ### 2.train folder
 At first, I try the KNN model. However, random forest, as an integrated learning model, composed of multiple weak learners (decision trees) has a strong learning ability. Moreover, the bagging calculation reflected the generalization ability can effectively reduce the occurrence of over-fitting phenomenon. So I choose random forest model instead.
 
