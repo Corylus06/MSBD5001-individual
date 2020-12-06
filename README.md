@@ -9,41 +9,41 @@ You will be able to reproduce the results by running every cell sequencely on tr
 ## Structure
 There are two folders, the 'EDA' folder and 'train' folder.
 
-### 1.EDA folder 
+## EDA folder 
 It contains files for exploratory data analysis, including split.ipynb, 2017.csv, 2018.csv, EDA_2017.ipynb, EDA_2018.ipynb.
 
-#### split.ipynb 
+### split.ipynb 
 It is used to divide the dataset by year. Due to the incomplete data in 2018, it is necessary to separate the data annually. Data of 2017 can be used to better observe data trends. In addition to division, missing values need to be handled appropriately. As described in the overview, speed information is sometimes lost due to equipment failure. Due to the small difference in quantity, I chose to fill in the data with linear filling to ensure the trend as much as possible
 
-#### 2017.csv and 2018.csv 
+### 2017.csv and 2018.csv 
 They are the output of split.ipynb, within which only contain data of corresponding year.
 
-#### EDA_2017.ipynb and EDA_2018.ipynb 
+### EDA_2017.ipynb and EDA_2018.ipynb 
 They are the EDA (exploratory data analysis) processes in 2017 and 2018. On this basis, we can see that the data distribution is fluctuating every month, every week, and every hour, so we need to extract these contents to form our features in the modeling part.
 
-#### train.csv
+### train.csv
 It is the raw training data given by contest.
 
-### 2.train folder
+## train folder
 At first, I try the KNN model. However, xgboostRegressor, as an integrated learning model, composed of multiple weak learners has a strong learning ability. It has other advantages, such as, regularization, parallel processing, high flexibility, and tree pruning, ect. As a result, I choose random forest model instead.
 
 I also find out that model fusion might achieved a even better result. As a result, I choose to use the tuned xgboost model as the first layer of the confusion model, and Logistic Regression as the second layer, in this way, I have successfully achieved a better result. 
 
-#### xgboost_final_output.csv
+### xgboost_final_output.csv
 It is the submit CSV file.
 
-#### xgboost_model1_pred.csv, xgboost_model2_pred.csv, xgboost_model3_pred.csv
+### xgboost_model1_pred.csv, xgboost_model2_pred.csv, xgboost_model3_pred.csv
 
 Output for each tuned xgboost models. These models are used as the first layer of model fusion.
 
-#### train.csv and test.csv 
+### train.csv and test.csv 
 They are the raw data given by contest.
 
-#### 2_model_merge_lr_xgboost.ipynb
+### 2_model_merge_lr_xgboost.ipynb
 
 This is the main file. We attain three xgboost model that have achieved a relatively good result, to improve the generaliztion ability, we choose to ensemble those models. Here, two layers of model fusion are used. Level 1 uses: 3 XGBoost models with different parameters, and Level 2 uses LinearRegression to fit the results of the first layer.
 
-#### 1_model_tuning_params1.ipynb, 1_model_tuning_params2.ipynb, 1_model_tuning_params3.ipynb
+### 1_model_tuning_params1.ipynb, 1_model_tuning_params2.ipynb, 1_model_tuning_params3.ipynb
 Tunning parameters and presenting the result on the testing set. Choose three models that performs relatively better.
 
 The whole process is divided into six steps.
