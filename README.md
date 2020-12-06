@@ -51,7 +51,7 @@ The whole process is divided into six steps.
 1. Read data from the CSV file and preprocess it. Some features that affect speed are extracted from the 'date' data: hour, day of week, date, month, and timestamp. They were standardized respectively. We can also see the importance of each feature through xgboost. 
    Based on EDA, we can discover that there is a big difference in the distribution of traffic speed between weekdays and weekends. Meanwhile, through the average velocity distribution, we can see that the velocity of identical months and each day within each month has a large fluctuation. So it's admirable to take month, date, day of week, and hour as the feature of the model, and also include the given timestamp as an analysis feature after normalization
 
-2. Fit the model preliminarily, and plot the fitting situation. At the same time, display the score, MSE, RSS, bag score, etc. to evaluate the model performance. Currently, the ${R}^{2}$ score is 0.9457
+2. Fit the model preliminarily, and plot the fitting situation. At the same time, display the score, MSE, RSS, bag score, etc. to evaluate the model performance. Currently, the <img src="http://latex.codecogs.com/gif.latex?{R}^{2}" /> score is 0.9457
 
 3. Adjust the model parameters to further improve the model performance. Here we introduce the main parameters that have been tuned to form a better model.
 > - n_estimator
@@ -67,7 +67,7 @@ The whole process is divided into six steps.
 > - learning_rate
 > A higher learning rate helps the model converge quicker, but it may affect the precision, so we need to check whether lowering the learning rate may lead to a better result.
 
-4. Fit all the adjusted parameters into the model and check the performance improvement. At this time, the ${R}^{2}$score is increased to 0.9490
+4. Fit all the adjusted parameters into the model and check the performance improvement. At this time, the <img src="http://latex.codecogs.com/gif.latex?{R}^{2}" /> score is increased to 0.9490
 
 5. Read 'test.csv', extract the feature, use the generated model to predict. The prediction results are obtained
 
